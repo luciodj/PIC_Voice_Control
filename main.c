@@ -78,9 +78,9 @@ void receivedFromCloud(uint8_t *topic, uint8_t *payload)
         yel = value;
     }
 
-
     // execute the command
-    // will perform during the sendToCloud interval
+   LED_YELLOW_set_level((yel) ? 0:1);
+   LED_RED_set_level(   (red) ? 0:1);
 
     // report back state
     static char json[70];
@@ -103,9 +103,7 @@ void sendToCloud(void)
 //      CLOUD_publishData((uint8_t*)json, len);
 //   }
 
-   LED_YELLOW_set_level((yel) ? 0:1);
-   LED_RED_set_level(   (red) ? 0:1);
-}
+  }
 
 
 int main(void)
